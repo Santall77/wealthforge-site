@@ -1,0 +1,33 @@
+// Données simulées pour les actifs
+const assets = [
+  { name: 'Bitcoin', value: 25000 },
+  { name: 'Apple Stock', value: 150 },
+  { name: 'Immobilier', value: 300000 }
+];
+
+// Créer un graphique pour visualiser les actifs
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('assetChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: assets.map(asset => asset.name),
+      datasets: [{
+        label: 'Valeur des Actifs',
+        data: assets.map(asset => asset.value),
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top'
+        }
+      }
+    }
+  });
+});
